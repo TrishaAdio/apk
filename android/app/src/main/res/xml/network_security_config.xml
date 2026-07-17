@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Allow plain HTTP because the VPS is accessed via IP:5000 without TLS.
+         Switch to HTTPS (a domain + certificate) when possible and this can
+         be tightened back to cleartextTrafficPermitted="false". -->
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>
