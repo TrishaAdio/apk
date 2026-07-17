@@ -1,0 +1,18 @@
+# Node
+node_modules/
+server/data/*.json
+.env
+
+# Android / Gradle
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/*.iml
+
+# Local Android SDK (installed in workspace for building; do not commit)
+android-sdk/
+
+# OS
+.DS_Store

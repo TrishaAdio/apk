@@ -1,0 +1,15 @@
+{
+  "name": "upi-monitor-server",
+  "version": "1.0.0",
+  "description": "Backend API to ingest and monitor UPI payment SMS forwarded from Android",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test:sample": "node scripts/send-samples.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
