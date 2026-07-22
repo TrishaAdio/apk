@@ -9,11 +9,19 @@ import kotlin.concurrent.thread
 /**
  * Receives incoming SMS (even when the app is closed), reassembles multipart
  * messages per-sender, and hands them to the Forwarder on a background thread.
+ *
+ * Handles both broadcasts:
+ *  - SMS_RECEIVED_ACTION: when the app holds RECEIVE_SMS directly.
+ *  - SMS_DELIVER_ACTION:  when the app is the default SMS app (the reliable
+ *    path on ROMs that block the permission for sideloaded apps).
  */
 class SmsReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        if (intent.action != Telephony.Sms.Intents.SMS_RECEIVED_ACTION) return
+        val action = intent.action
+        if (action != Telephony.Sms.Intents.SMS_RECEIVED_ACTION &&
+            action != Telephony.Sms.Intents.SMS_DELIVER_ACTION
+        ) return
         if (!Prefs(context).enabled) return
 
         val messages = Telephony.Sms.Intents.getMessagesFromIntent(intent) ?: return

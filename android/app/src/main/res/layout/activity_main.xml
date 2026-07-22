@@ -112,6 +112,21 @@
             android:layout_marginTop="8dp" />
 
         <Button
+            android:id="@+id/smsAccessButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enable SMS access (set as default SMS app)"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/smsStatusView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:paddingTop="4dp"
+            android:text="SMS access: unknown" />
+
+        <Button
             android:id="@+id/batteryButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
